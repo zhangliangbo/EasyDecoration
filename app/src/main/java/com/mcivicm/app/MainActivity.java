@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void convert(BaseViewHolder helper, final Item item) {
             RecyclerView recyclerView = (RecyclerView) helper.itemView.findViewById(R.id.item_recycler);
+            recyclerView.setNestedScrollingEnabled(false);
             ChildAdapter childAdapter = new ChildAdapter();
             recyclerView.setAdapter(childAdapter);
             int color = getResources().getColor(R.color.colorAccent);
