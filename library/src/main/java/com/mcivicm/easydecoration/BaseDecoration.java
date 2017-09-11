@@ -26,7 +26,7 @@ public class BaseDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View view = parent.getChildAt(i);//子View
             itemBorder.reset();//reset itemBorder
-            getItemBorder(parent.getChildAdapterPosition(view), itemBorder, parent.getChildCount());//给ItemBorder赋值
+            getItemBorder(parent.getChildAdapterPosition(view), itemBorder, state.getItemCount());//给ItemBorder赋值
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
             //左边缘-leftBorder
             rectF.set(view.getLeft() - layoutParams.leftMargin - itemBorder.getLeftBorder().getThickness(),
@@ -67,14 +67,18 @@ public class BaseDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         itemBorder.reset();//reset itemBorder
-        getItemBorder(parent.getChildAdapterPosition(view), itemBorder, parent.getChildCount());//给ItemBorder赋值
+        getItemBorder(parent.getChildAdapterPosition(view), itemBorder, state.getItemCount());//给ItemBorder赋值
         outRect.set(itemBorder.getLeftBorder().getThickness(),
                 itemBorder.getTopBorder().getThickness(),
                 itemBorder.getRightBorder().getThickness(),
                 itemBorder.getBottomBorder().getThickness());
     }
 
-
+    /**
+     * @param position   当前视图的位置
+     * @param itemBorder 当前itemView的边缘
+     * @param count      元素总数
+     */
     public void getItemBorder(int position, ItemBorder itemBorder, int count) {
 
     }
