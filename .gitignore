@@ -12,5 +12,3 @@ library/libs/
 library/src/main/res/drawable/
 nexus.gradle
 gradle.properties
-gradlew
-gradlew.bat
